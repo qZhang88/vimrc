@@ -30,6 +30,8 @@ set nocompatible
 set nobackup
 set noswapfile
 set nu
+set ts=4
+set autoindent
 set history=1024
 set autochdir
 set whichwrap=b,s,<,>,[,]
@@ -186,8 +188,8 @@ let NERDTreeBookmarksSort = 1
 let NERDTreeShowLineNumbers = 0
 let NERDTreeShowBookmarks = 1
 let g:NERDTreeWinPos = 'right'
-let g:NERDTreeDirArrowExpandable = '?'
-let g:NERDTreeDirArrowCollapsible = '?'
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
 nmap <leader>n :NERDTreeToggle <cr>
 if exists('g:NERDTreeWinPos')
     autocmd vimenter * NERDTree
@@ -227,7 +229,7 @@ nnoremap <C-P> :bp<CR>
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#whitespace#symbol = '!'
 
-"设置状态栏符号显示，下面编码用双引号"
+" 设置状态栏符号显示，下面编码用双引号"
 let g:Powerline_symbols='fancy'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -268,6 +270,18 @@ Plugin 'mattn/emmet-vim'
 " ----- Fugitive ----- {{{
 Plugin 'tpope/vim-fugitive'
 " }}}
+" ----- jedi-vim ----- {{{
+Plugin 'davidhalter/jedi-vim'
+" disable docstring window
+autocmd FileType python setlocal completeopt-=preview
+" not use first line for completion
+let g:jedi#popup_select_first = 0
+" }}}
+" ----- supertab ----- {{{
+Plugin 'ervandew/supertab'
+" }}}
+
+
 
 filetype on
 call vundle#end()
