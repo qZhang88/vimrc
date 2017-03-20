@@ -8,13 +8,13 @@ autocmd FileType text setlocal textwidth=78
 
 augroup END
 
-" vim ÎÄ¼şÕÛµş·½Ê½Îª marker
+" vim æ–‡ä»¶æŠ˜å æ–¹å¼ä¸º marker
 augroup ft_vim
     au!
 
     autocmd FileType vim setlocal foldmethod=marker
 
-    " ´ò¿ªÎÄ¼ş×ÜÊÇ¶¨Î»µ½ÉÏ´Î±à¼­µÄÎ»ÖÃ
+    " æ‰“å¼€æ–‡ä»¶æ€»æ˜¯å®šä½åˆ°ä¸Šæ¬¡ç¼–è¾‘çš„ä½ç½®
     autocmd BufReadPost *
       \ if line("'\"") > 1 && line("'\"") <= line("$") |
       \   exe "normal! g`\"" |
@@ -30,15 +30,13 @@ set nocompatible
 set nobackup
 set noswapfile
 set nu
-set ts=4
-set autoindent
 set history=1024
 set autochdir
 set whichwrap=b,s,<,>,[,]
 set nobomb
 set backspace=indent,eol,start whichwrap+=<,>,[,]
-" Vim µÄÄ¬ÈÏ¼Ä´æÆ÷ºÍÏµÍ³¼ôÌù°å¹²Ïíset clipboard+=unnamed
-" ÉèÖÃ alt ¼ü²»Ó³Éäµ½²Ëµ¥À¸
+" Vim çš„é»˜è®¤å¯„å­˜å™¨å’Œç³»ç»Ÿå‰ªè´´æ¿å…±äº«set clipboard+=unnamed
+" è®¾ç½® alt é”®ä¸æ˜ å°„åˆ°èœå•æ 
 set winaltkeys=no
 " }}}
 
@@ -60,21 +58,21 @@ source $VIMRUNTIME/menu.vim
 set cursorline
 set hlsearch
 set number
-" ´°¿Ú´óĞ¡
+" çª—å£å¤§å°
 set lines=35 columns=140
-" ·Ö¸î³öÀ´µÄ´°¿ÚÎ»ÓÚµ±Ç°´°¿ÚÏÂ±ß/ÓÒ±ß
+" åˆ†å‰²å‡ºæ¥çš„çª—å£ä½äºå½“å‰çª—å£ä¸‹è¾¹/å³è¾¹
 set splitbelow
 set splitright
-"²»ÏÔÊ¾¹¤¾ß/²Ëµ¥À¸
+"ä¸æ˜¾ç¤ºå·¥å…·/èœå•æ 
 set guioptions-=T
 set guioptions-=m
 set guioptions-=L
 set guioptions-=r
 set guioptions-=b
-" Ê¹ÓÃÄÚÖÃ tab ÑùÊ½¶ø²»ÊÇ gui
+" ä½¿ç”¨å†…ç½® tab æ ·å¼è€Œä¸æ˜¯ gui
 set guioptions-=e
 " set nolist
-"set listchars=trail:¡¤,extends:>,precedes:<
+"set listchars=trail:Â·,extends:>,precedes:<
 set guifont=Inconsolata:h12:cANSI
 
 set statusline=%f
@@ -104,19 +102,19 @@ nmap <leader>tc :tabclose<cr>
 nmap <leader>th :tabp<cr>
 nmap <leader>tl :tabn<cr>
 
-" ÒÆ¶¯·Ö¸î´°¿Ú
+" ç§»åŠ¨åˆ†å‰²çª—å£
 nmap <C-j> <C-W>j
 nmap <C-k> <C-W>k
 nmap <C-h> <C-W>h
 nmap <C-l> <C-W>l
 
-" Õı³£Ä£Ê½ÏÂ alt+j,k,h,l µ÷Õû·Ö¸î´°¿Ú´óĞ¡
+" æ­£å¸¸æ¨¡å¼ä¸‹ alt+j,k,h,l è°ƒæ•´åˆ†å‰²çª—å£å¤§å°
 nnoremap <M-j> :resize +5<cr>
 nnoremap <M-k> :resize -5<cr>
 nnoremap <M-h> :vertical resize -5<cr>
 nnoremap <M-l> :vertical resize +5<cr>
 
-" ²åÈëÄ£Ê½ÒÆ¶¯¹â±ê alt + ·½Ïò¼ü
+" æ’å…¥æ¨¡å¼ç§»åŠ¨å…‰æ ‡ alt + æ–¹å‘é”®
 inoremap <M-j> <Down>
 inoremap <M-k> <Up>
 inoremap <M-h> <left>
@@ -126,9 +124,9 @@ inoremap <M-l> <Right>
 inoremap <C-BS> <Esc>bdei
 
 nnoremap vv ^vg_
-" ×ª»»µ±Ç°ĞĞÎª´óĞ´
+" è½¬æ¢å½“å‰è¡Œä¸ºå¤§å†™
 inoremap <C-u> <esc>mzgUiw`za
-" ÃüÁîÄ£Ê½ÏÂµÄĞĞÊ×Î²
+" å‘½ä»¤æ¨¡å¼ä¸‹çš„è¡Œé¦–å°¾
 cnoremap <C-a> <home>
 cnoremap <C-e> <end>
 
@@ -148,21 +146,21 @@ cmap <S-Insert> <C-R>+
 exe 'inoremap <script> <C-V>' paste#paste_cmd['i']
 exe 'vnoremap <script> <C-V>' paste#paste_cmd['v']
 
-" ´ò¿ªµ±Ç°Ä¿Â¼ windows
+" æ‰“å¼€å½“å‰ç›®å½• windows
 nmap <silent> <leader>ex :!start explorer %:p:h<CR>
 
-" ´ò¿ªµ±Ç°Ä¿Â¼CMD
+" æ‰“å¼€å½“å‰ç›®å½•CMD
 nmap <silent> <leader>cmd :!start cmd /k cd %:p:h<cr>
-" ´òÓ¡µ±Ç°Ê±¼ä
+" æ‰“å°å½“å‰æ—¶é—´
 nmap <F3> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
 
 let NERDTreeBookmarksFile = $VIM . '/NERDTreeBookmarks'
 
-" ¸´ÖÆµ±Ç°ÎÄ¼ş/Â·¾¶µ½¼ôÌù°å
+" å¤åˆ¶å½“å‰æ–‡ä»¶/è·¯å¾„åˆ°å‰ªè´´æ¿
 nmap ,fn :let @*=substitute(expand("%"), "/", "\\", "g")<CR>
 nmap ,fp :let @*=substitute(expand("%:p"), "/", "\\", "g")<CR>
 
-"ÉèÖÃÇĞ»»Buffer¿ì½İ¼ü"
+"è®¾ç½®åˆ‡æ¢Bufferå¿«æ·é”®"
 nnoremap <C-left> :bn<CR>
 nnoremap <C-right> :bp<CR>
 
@@ -181,7 +179,7 @@ Plugin 'VundleVim/Vundle.vim'
 " ----- NerdTree ----- {{{
 Plugin 'scrooloose/nerdtree'
 
-let NERDTreeIgnore=['.idea', '.vscode', 'node_modules', '*.pyc']
+let NERDTreeIgnore=['.idea', '.vscode', 'node_modules', '*.pyc', '\.pyc$', '\~$']
 let NERDTreeBookmarksFile = $VIM . '/NERDTreeBookmarks'
 let NERDTreeMinimalUI = 1
 let NERDTreeBookmarksSort = 1
@@ -210,26 +208,26 @@ Plugin 'vim-airline/vim-airline-themes'
 "set laststatus=2
 let g:airline_theme='tomorrow'
 
-" ÉèÖÃconsolas×ÖÌå"
+" è®¾ç½®consolaså­—ä½“"
 " download consolas-powerline and put into font directory
 " https://github.com/eugeii/consolas-powerline-vim
 set guifont=Consolas\ for\ Powerline\ FixedD:h11
 let g:airline_powerline_fonts = 1
 
 
-" ´ò¿ªtabline¹¦ÄÜ,·½±ã²é¿´BufferºÍÇĞ»»
+" æ‰“å¼€tablineåŠŸèƒ½,æ–¹ä¾¿æŸ¥çœ‹Bufferå’Œåˆ‡æ¢
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
-"ÉèÖÃÇĞ»»Buffer¿ì½İ¼ü"
+"è®¾ç½®åˆ‡æ¢Bufferå¿«æ·é”®"
 nnoremap <C-N> :bn<CR>
 nnoremap <C-P> :bp<CR>
 
-" ¹Ø±Õ×´Ì¬ÏÔÊ¾¿Õ°×·ûºÅ¼ÆÊı,Õâ¸ö¶ÔÎÒÓÃ´¦²»´ó"
+" å…³é—­çŠ¶æ€æ˜¾ç¤ºç©ºç™½ç¬¦å·è®¡æ•°,è¿™ä¸ªå¯¹æˆ‘ç”¨å¤„ä¸å¤§"
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#whitespace#symbol = '!'
 
-" ÉèÖÃ×´Ì¬À¸·ûºÅÏÔÊ¾£¬ÏÂÃæ±àÂëÓÃË«ÒıºÅ"
+" è®¾ç½®çŠ¶æ€æ ç¬¦å·æ˜¾ç¤ºï¼Œä¸‹é¢ç¼–ç ç”¨åŒå¼•å·"
 let g:Powerline_symbols='fancy'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -242,7 +240,7 @@ let g:airline_symbols.branch = "\u2b60"
 let g:airline_symbols.readonly = "\u2b64"
 let g:airline_symbols.linenr = "\u2b61"
 
-"ÉèÖÃ¶¥²¿tablineÀ¸·ûºÅÏÔÊ¾
+"è®¾ç½®é¡¶éƒ¨tablineæ ç¬¦å·æ˜¾ç¤º
 let g:airline#extensions#tabline#left_sep = "\u2b80"
 let g:airline#extensions#tabline#left_alt_sep = "\u2b81"
 
@@ -281,10 +279,36 @@ let g:jedi#popup_select_first = 0
 Plugin 'ervandew/supertab'
 " }}}
 
-
-
 filetype on
 call vundle#end()
+" }}}
+
+
+" Python {{{
+:syntax on
+
+" PEP 8
+au BufNewFile,BufRead *.py
+\ set tabstop=4
+\ set softtabstop=4
+\ set shiftwidth=4
+\ set textwidth=79
+\ set autoindent
+\ set fileformat=unix
+
+" redundence space
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+"python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+
 " }}}
 
 
