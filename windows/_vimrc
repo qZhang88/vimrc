@@ -185,7 +185,7 @@ let NERDTreeMinimalUI = 1
 let NERDTreeBookmarksSort = 1
 let NERDTreeShowLineNumbers = 0
 let NERDTreeShowBookmarks = 1
-let g:NERDTreeWinPos = 'right'
+let g:NERDTreeWinPos = 'left'
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 nmap <leader>n :NERDTreeToggle <cr>
@@ -272,11 +272,19 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'davidhalter/jedi-vim'
 " disable docstring window
 autocmd FileType python setlocal completeopt-=preview
+" disable automatically starts the completion, if type a dot
+let g:jedi#popup_on_dot = 0
 " not use first line for completion
 let g:jedi#popup_select_first = 0
 " }}}
 " ----- supertab ----- {{{
 Plugin 'ervandew/supertab'
+" }}}
+" ----- indentpython ----- {{{
+Plugin 'vim-scripts/indentpython.vim'
+" }}}
+" ----- syntastic ----- {{{
+Plugin 'scrooloose/syntastic'
 " }}}
 
 filetype on
@@ -288,26 +296,17 @@ call vundle#end()
 :syntax on
 
 " PEP 8
-au BufNewFile,BufRead *.py
-\ set tabstop=4
-\ set softtabstop=4
-\ set shiftwidth=4
-\ set textwidth=79
-\ set autoindent
-\ set fileformat=unix
+au BufNewFile,BufRead *.py set tabstop=4 |set softtabstop=4|set shiftwidth=4|set textwidth=79|set autoindent|set fileformat=unix
 
-" redundence space
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
-"python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
+" python with virtualenv support
+"py << EOF
+"import os
+"import sys
+"if 'VIRTUAL_ENV' in os.environ:
+"  project_base_dir = os.environ['VIRTUAL_ENV']
+"  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+"  execfile(activate_this, dict(__file__=activate_this))
+"EOF
 
 " }}}
 
