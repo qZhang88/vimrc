@@ -42,6 +42,7 @@ set whichwrap+=<,>,h,l
 set autoread
 set cursorline          "突出显示当前行"
 "set cursorcolumn        "突出显示当前列"
+hi CursorLine term=bold cterm=bold guibg=Grey40
 
 "按F5运行python"
 map <F5> :Autopep8<CR> :w<CR> :call RunPython()<CR>
