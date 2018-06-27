@@ -1,30 +1,25 @@
 set encoding=utf-8
 
-"去掉vi的一致性"
-set nocompatible
-
-"显示行号"
-set number 
+set nocompatible       "去掉vi的一致性
+filetype indent on     " 解决输入井号注释缩进问题 
 
 " 隐藏滚动条"    
 set guioptions-=r 
 set guioptions-=L
 set guioptions-=b
 
-"隐藏顶部标签栏"
+" 隐藏顶部标签栏"
 set showtabline=0
 
-"设置字体"
-set guifont=Monaco:h13         
-
+set guifont=Monaco:h13  " 设置字体"       
 syntax on               "开启语法高亮"
-
+set number              "显示行号"
 set background=dark     "设置背景色"
 set nowrap              "设置不折行"
 set fileformat=unix     "设置以unix的格式保存文件"
 set cindent             "设置C样式的缩进格式"
-set tabstop=4           "设置table长度"
-set shiftwidth=4        "同上"
+set tabstop=2           "设置table长度"
+set shiftwidth=2        "同上"
 set showmatch           "显示匹配的括号"
 set scrolloff=5         "距离顶部和底部5行"
 set laststatus=2        "命令行为两行"
@@ -60,9 +55,9 @@ endfunction
 
 " PEP 8
 au BufRead,BufNewFile *.py
-\ set tabstop=4     |
-\ set softtabstop=4 |
-\ set shiftwidth=4  |
+\ set tabstop=2     |
+\ set softtabstop=2 |
+\ set shiftwidth=2  |
 \ set textwidth=79  |
 \ set expandtab     |
 \ set autoindent    |
