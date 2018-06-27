@@ -1,7 +1,7 @@
 set encoding=utf-8
 
-set nocompatible       "去掉vi的一致性
-filetype indent on     " 解决输入井号注释缩进问题 
+set nocompatible        "去掉vi的一致性
+filetype indent on      "解决输入井号注释缩进问题 
 
 " 隐藏滚动条"    
 set guioptions-=r 
@@ -11,7 +11,7 @@ set guioptions-=b
 " 隐藏顶部标签栏"
 set showtabline=0
 
-set guifont=Monaco:h13  " 设置字体"       
+set guifont=Monaco:h13  "设置字体"       
 syntax on               "开启语法高亮"
 set number              "显示行号"
 set background=dark     "设置背景色"
