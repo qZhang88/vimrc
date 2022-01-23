@@ -3,6 +3,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:python3_host_prog = '~/miniconda3/bin/python'
 
+syntax on
 filetype indent plugin on
 
 " Lang & Encoding
@@ -113,8 +114,8 @@ nmap <F3> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
 "nmap ,fp :let @*=substitute(expand("%:p"), "/", "\\", "g")<CR>
 
 "设置切换Buffer快捷键"
-nnoremap <S-H> :bp<CR>
-nnoremap <S-L> :bn<CR>
+nnoremap <S-j> :bp<CR>
+nnoremap <S-k> :bn<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
